@@ -1,0 +1,14 @@
+<!--<div [style]="{'width': '70%', 'background': 'rgb(224, 222, 222)', 'margin':'0px auto', 'border-radius':'10px', 'padding': '10px'}"> 
+    <p-scroller [items]="items" [itemSize]="200" scrollHeight="82vh" styleClass="border-1 surface-border">
+        <ng-template pTemplate="item" let-item let-options="options">
+            <app-card-component [header]="item.header" [text]="item.text" [style]="{'margin':'0px 30px'}"></app-card-component>
+        </ng-template>
+    </p-scroller>
+</div>> -->
+<div [style]="{'width': '70%', 'background': 'rgb(224, 222, 222)', 'margin':'0px auto', 'border-radius':'10px', 'padding': '10px'}">
+    <ng-template ngFor let-item [ngForOf]="items" let-i="index">
+        <app-card-component [id]="item.id" [header]="item.header" [text]="item.text" [images]="item.images" [date]="item.date" [style]="{'margin':'0px 30px'}"></app-card-component>
+    </ng-template>
+</div>
+<p-button (click)="create()" [style]="{'position':'fixed', 'right':'10vh', 'bottom':'5vh'}" icon="pi pi-plus" size="large" [rounded]="true" severity="help"></p-button>
+

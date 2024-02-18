@@ -1,0 +1,15 @@
+<div class="main">
+    <div>
+        <h4>
+            Почта
+        </h4>
+        <input type="text" pInputText [(ngModel)]="mail" />
+    </div>
+    <div>
+        <h4>
+            Пароль
+        </h4>
+        <p-password [(ngModel)]="password" [feedback]="false"></p-password>
+    </div>
+    <p-button label="Войти" [style]="{'margin': '20px'}" (click)="signIn()"></p-button>
+</div>

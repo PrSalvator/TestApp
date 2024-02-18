@@ -1,0 +1,27 @@
+<div [style]="{'padding':'40px'}">
+    <h2>Заголовок</h2>
+    <input type="text" pInputText [(ngModel)]="header" />
+    <h2>Текст заметки</h2>
+    <quill-editor [(ngModel)]="text"
+  placeholder="Enter Text" [modules]="quillConfig" ></quill-editor>
+    <h2>Прикрепить изображения</h2>
+    <div class="card flex justify-content-center">
+        <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php"  (onUpload)="onUpload($event)" [multiple]="true" accept="image/*" [maxFileSize]="1000000">
+            <ng-template pTemplate="content">
+                <ul *ngIf="uploadedFiles.length">
+                    <li *ngFor="let file of uploadedFiles" [style]="{'display':'flex', 'align-items':'center', 'margin':'20px'}">
+                        <div [style]="{'width':'30%'}">{{ file.name }}</div> 
+                        <p-button (click)="deleteFile(file.name)" icon="pi pi-times" severity="danger" size="small" [rounded]="true"></p-button></li>
+                </ul>
+                <ul *ngIf="images.length">
+                    <li *ngFor="let image of images" [style]="{'display':'flex', 'align-items':'center', 'margin':'20px'}">
+                        <div [style]="{'width':'30%'}">{{ image.name }}</div> 
+                        <p-button (click)="deleteImage(image.src)" icon="pi pi-times" severity="danger" size="small" [rounded]="true"></p-button></li>
+                </ul>
+            </ng-template>
+        </p-fileUpload>
+    </div>
+    <p-button *ngIf="isEdit" label="Сохранить" (click)="save()" [style]="{'margin':'15px'}"></p-button>
+    <p-button *ngIf="!isEdit" label="Создать" (click)="create()" [style]="{'margin':'15px'}"></p-button>
+</div>
+

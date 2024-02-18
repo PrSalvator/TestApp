@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  text = "asd";
   title = 'TestApp';
+  items = [
+    {label: 'New', icon: 'pi pi-fw pi-plus'},
+    {label: 'Download', icon: 'pi pi-fw pi-download'}
+  ]
 }

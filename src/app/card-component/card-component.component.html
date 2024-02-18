@@ -1,0 +1,23 @@
+<p-card header="{{header}}" subheader="{{strDate}}" [ngClass]="{visibility: isVisible}">
+    <ng-template pTemplate="content">
+        <div>
+            <div class="text" [innerHTML]="text"></div>
+            <p-galleria [value]="images" [(visible)]="isVisible"[containerStyle]="{'width': '100%'}" [numVisible]="9" style="width: 20%;"
+            [circular]="true" [fullScreen]="false" [showItemNavigators]="false" [showThumbnails]="false" [showIndicators]="false">
+                <ng-template pTemplate="item" let-item>
+                    <img [src]="item.src" style="width: 100%;display: block;"/>
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                    <div class="grid grid-nogutter justify-content-center">
+                        <img [src]="item.src" style="display: block;" style="width: 50%;"/>
+                    </div>
+                </ng-template>
+            </p-galleria>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button label="Изменить" icon="pi pi-pencil" [size]="'small'" (click)="edit()"></p-button>
+        <p-button label="Удалить" (click)="delete()" icon="pi pi-trash" [size]="'small'" styleClass="p-button-danger" [style]="{ 'margin-left': '.5em' }"></p-button>
+    </ng-template>
+</p-card>
+

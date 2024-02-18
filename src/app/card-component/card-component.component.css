@@ -1,0 +1,14 @@
+.text{
+    max-height: 150px;
+    overflow-y: auto;
+    width: 80%;
+    text-wrap: wrap;
+}
+div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.visibility{
+    display: none;
+}
